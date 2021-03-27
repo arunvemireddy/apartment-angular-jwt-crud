@@ -1,16 +1,16 @@
 <div class="centered">
-    <div  class="card">
+    <div class="card">
         <div class="card-body">
             <div>
                 <form ngNativeValidate [formGroup]='loginForm' (ngSubmit)="login()">
                     <div class="row" style="margin-bottom: 20px;">
                         <div class="col-4">
-                            <input type="text" class="form-control" formControlName="userName" placeholder="User Name">
+                            <input type="text" class="form-control" formControlName="userName" placeholder="User Name" required>
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 20px;">
                         <div class="col-4">
-                            <input type="password" class="form-control" formControlName="password" placeholder="Password">
+                            <input type="password" class="form-control" formControlName="password" placeholder="Password" required>
                             <a routerLink='/forgotPwd'>Forgot Password</a>
                         </div>
                     </div>
@@ -23,4 +23,4 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
