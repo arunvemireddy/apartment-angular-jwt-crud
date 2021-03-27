@@ -16,6 +16,7 @@ import { LoginService } from './shared/services/login.service';
 import { AuthGuard } from './shared/services/auth.guard';
 import { AuthInterceptor } from './shared/services/auth.interceptor';
 import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -34,7 +35,10 @@ import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut:3000
+    }),
     NgSelectModule
   ],
   providers: [LoginService,AuthGuard,[{ provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}]],

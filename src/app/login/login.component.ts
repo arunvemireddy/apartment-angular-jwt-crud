@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
     //     positionClass: 'toast-top-center'
     //   }
     // );
+    this.toastr.success('Logged In');
   }
 
   showErrorMsg(err: any) {
@@ -65,6 +66,7 @@ export class LoginComponent implements OnInit {
     //     positionClass: 'toast-top-center',
     //   }
     // );
+    this.toastr.error('invalid credentials');
   }
 
   removeTokenItem() {
