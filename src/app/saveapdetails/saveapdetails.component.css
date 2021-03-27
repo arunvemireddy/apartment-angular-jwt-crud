@@ -1,0 +1,26 @@
+.btn-btn-sty{
+    background-color: rgb(0, 176, 182);
+    color:  whitesmoke;
+    border: none;
+}
+
+.btn{
+    background-color: rgb(0, 176, 182);
+    color:  whitesmoke;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+
+.toastr-msg{
+    width: 30%;
+}
+
+
+.alert{
+    width: 33.333%;
+}
+
+.toastr-msg{
+    width: 33.333%;
+}

@@ -1,0 +1,21 @@
+<h4 style="margin-left: 25px;  height: 34px;margin-top: 30px;">{{tableTitle}}</h4>
+<div class="card table-responsive" style="height: 500px;margin-left: 16px;margin-top: 10px;width: 98%;">
+<table class="table table-striped">
+    <thead>
+        <tr>
+        <th>#</th>
+        <th>Owner Name</th>
+        <th>Flat No</th>
+        <th>Contact</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let row of ownerDetails">
+        <tr>
+            <td>{{row.id}}</td>
+            <td>{{row.name}}</td>
+            <td>{{row.flatno}}</td>
+            <td>{{row.contact}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>

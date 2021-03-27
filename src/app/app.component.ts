@@ -1,10 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { SaveService } from './save.service';
+import { ApartmentCONSTANT } from './shared/ApartmentCONSTANT';
+import { LoginService } from './shared/services/login.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'apartment';
+export class AppComponent implements OnInit {
+ 
+  isShow:boolean =false;
+
+  
+
+  constructor(
+    private saveService:SaveService,
+    private fb:FormBuilder,
+    private toastr: ToastrService,
+    public router: Router,
+    private localService:LoginService) { }
+
+  ngOnInit(){
+
+  }
+
+  @HostListener('window:unload', ['$event'])
+  async unloadHandler(event) {
+    if (event.currentTarget.performance.navigation.type !== PerformanceNavigation.TYPE_RELOAD) {
+      localStorage.clear();
+    }
+  }
 }

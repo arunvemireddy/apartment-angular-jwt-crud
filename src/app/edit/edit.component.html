@@ -1,0 +1,8 @@
+<p>edit works!</p>
+<input #apId (keyup)="getapId(apId.value)" type="number">
+
+<input #apartmentName (keyup)="getapName(apartmentName.value)" type="text">
+
+<input #noofFlats (keyup)="getFlat(noofFlats.value)" type="number">
+
+<button (click)="update()">submit</button>

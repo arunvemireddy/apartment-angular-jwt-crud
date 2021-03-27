@@ -1,0 +1,26 @@
+<div class="centered">
+    <div  class="card">
+        <div class="card-body">
+            <div>
+                <form ngNativeValidate [formGroup]='loginForm' (ngSubmit)="login()">
+                    <div class="row" style="margin-bottom: 20px;">
+                        <div class="col-4">
+                            <input type="text" class="form-control" formControlName="userName" placeholder="User Name">
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 20px;">
+                        <div class="col-4">
+                            <input type="password" class="form-control" formControlName="password" placeholder="Password">
+                            <a routerLink='/forgotPwd'>Forgot Password</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <button type="submit" class="btn btn-default" routerLink='/login'>Login</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>

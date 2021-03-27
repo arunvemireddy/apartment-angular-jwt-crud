@@ -1,0 +1,93 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title" style="margin-bottom: 30px;margin-left: 30px;">Add Owner Details</h5>
+        <form ngNativeValidate [formGroup]="ownerForm" (ngSubmit)="saveOwnerDetails()">
+            <div class="row" style="width: 60%;margin-left: 10px;">
+                <div class="col-4">
+                    <input type="text" class="form-control" placeholder="Owner Name" formControlName="ownerName"
+                        required>
+                </div>
+                <div class="col-4">
+                    <input type="number" class="form-control" placeholder="Flat No" formControlName="flatNo" required>
+                </div>
+                <div class="col-4">
+                    <input type="number" class="form-control" placeholder="Contact" formControlName="contactNo"
+                        required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-default float-right" type="submit">
+                         <span *ngIf='disSpinner'><i class="fa fa-circle-o-notch fa-spin"></i> </span>
+                        Add
+                    </button>
+                    <button style="margin-right: 15px;" class="btn btn-default float-right" type="button"
+                        (click)="clearDetails()">Clear</button>
+                </div>
+            </div>
+        </form>
+</div>
+</div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title" style="margin-bottom: 30px;margin-left: 30px;">Update Owner Details</h5>
+        <form [formGroup]='updateForm' (ngSubmit)='updateDetails()'>
+            <div class="row" style="width: 60%;margin-left: 10px;">
+                <div class="col-4">
+            <ng-select  class="form-control" [items]="FlatList"
+             placeholder="Flat No"
+                    [virtualScroll]="true" formControlName="FlatNo"
+                    (search)="onSearchFlat($event)" 
+                    (ngModelChange)="onSelectFlat($event)">
+            </ng-select>
+            <span style="font-size: 12px;
+            background: radial-gradient(#f2f550, transparent);float: right;">Type atleast 2 characters</span>
+            </div>
+            <div class="col-4">
+                <input class="form-control" type="text" placeholder="Owner" formControlName="Owner" required>
+                    </div>
+                    <div class="col-4">
+                <input class="form-control" type="text" placeholder="Contact" formControlName="Contact" required>
+                     </div>
+                     <div class="col-3">
+                        <input hidden class="form-control" type="text" placeholder="id" formControlName="id" required>
+                    </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-default float-right" type="submit">
+                         <span *ngIf='disSpinner'><i class="fa fa-circle-o-notch fa-spin"></i> </span>
+                        Update
+                    </button>
+                    </div>
+                    </div>
+        </form>
+
+
+
+        <!-- 
+<form [formGroup]="apdetailsForm" #savedetails (ngSubmit)="saveDetails(savedetails)">
+<div class="form-group">
+    <label for="Apartment Name"></label>
+    <input type="text" class="form-control" formControlName="apartmentName">
+</div>
+<div class="form-group">
+    <label for="noOfFlats"></label>
+    <input type="number" class="form-control" formControlName="noofFlats">
+</div>
+<button class="btn-btn-sty" type="submit">Submit</button>
+<div>
+    <button (click)="getdetails()">Get</button>
+    <div *ngFor="let ap of apd">
+       <a> {{ap.apartmentName}}</a>
+    </div>
+    <div><h2>{{name}}</h2>   </div>
+</div>
+</form>
+</div>
+</div>
+
+<div [hidden]="!submitted">  
+    <h4>Details Saved SuccessFully!</h4>  
+    <button (click)="addApForm()" class='btn btn-primary'>Reset</button>  
+ </div> -->

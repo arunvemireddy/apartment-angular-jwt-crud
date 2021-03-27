@@ -24,9 +24,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/font-awesome/css/font-awesome.css"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {
@@ -119,6 +121,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "apartment"
+    }
+  },
+  "defaultProject": "apartment",
+  "cli": {
+    "analytics": "bea5a1b0-c0ad-4f2f-b224-d79bf29aca07"
+  }
 }
