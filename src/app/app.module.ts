@@ -17,6 +17,8 @@ import { AuthGuard } from './shared/services/auth.guard';
 import { AuthInterceptor } from './shared/services/auth.interceptor';
 import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
+import { MomentModule } from 'ngx-moment';
 
 
 @NgModule({
@@ -39,6 +41,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ToastrModule.forRoot({
       timeOut:3000
     }),
+    NgIdleKeepaliveModule.forRoot(),
+    MomentModule,
     NgSelectModule
   ],
   providers: [LoginService,AuthGuard,[{ provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}]],

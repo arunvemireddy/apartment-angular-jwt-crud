@@ -1,6 +1,8 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Idle } from '@ng-idle/core';
+import { Keepalive } from '@ng-idle/keepalive';
 import { ToastrService } from 'ngx-toastr';
 import { SaveService } from './save.service';
 import { ApartmentCONSTANT } from './shared/ApartmentCONSTANT';
@@ -14,7 +16,10 @@ import { LoginService } from './shared/services/login.service';
 export class AppComponent implements OnInit {
  
   isShow:boolean =false;
-
+  idleState = 'Not started.';
+  timedOut = false;
+  lastPing?: Date = null;
+  title = 'angular-idle-timeout';
   
 
   constructor(
@@ -22,7 +27,9 @@ export class AppComponent implements OnInit {
     private fb:FormBuilder,
     private toastr: ToastrService,
     public router: Router,
-    private localService:LoginService) { }
+    private localService:LoginService,
+    private idle: Idle, 
+    private keepalive: Keepalive) { }
 
   ngOnInit(){
 

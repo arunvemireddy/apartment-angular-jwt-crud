@@ -27,7 +27,7 @@ export class SaveapdetailsComponent implements OnInit {
   });
   updateForm = new FormGroup({
     FlatNo: new FormControl(),
-    Owner: new FormControl(),
+    Owner: new FormControl('', Validators.pattern('^[a-zA-Z \-\']+')),
     Contact: new FormControl(),
     id: new FormControl()
   });
@@ -58,16 +58,20 @@ export class SaveapdetailsComponent implements OnInit {
   }
 
   updateDetails() {
+    if(this.updateForm.controls['FlatNo'].value!=null&&this.updateForm.controls['FlatNo'].value!=undefined&&this.updateForm.controls['FlatNo'].value!=0){
     this.updateOwnerDetails.flatno = this.updateForm.controls['FlatNo'].value;
     this.updateOwnerDetails.name = this.updateForm.controls['Owner'].value;
     this.updateOwnerDetails.contact = this.updateForm.controls['Contact'].value;
     this.updateOwnerDetails.id = this.updateForm.controls['id'].value;
     this.saveService.postService(ApartmentCONSTANT.UPDATE_OWNER_DETAILS_URI, (data) => this.showSuccessMsg(data), (err) => this.showErrorMsg(err), this.updateOwnerDetails)
+  }else{
+    this.toastr.error("Enter flat no");
   }
+}
 
   prepareData(data: any) {
     this.FlatList = data;
-
+    
   }
 
   prepareData1(data: any) {
@@ -91,7 +95,7 @@ export class SaveapdetailsComponent implements OnInit {
     this.toastr.success(data.message, '', { timeOut: 5000 });
   }
 
-  showErrorMsg(err: any) {
+  showErrorMsg(data: any) {
     // this.toastr.error(
     //   '<span class="ngwfmt-icons"><i class="fa fa-check"></i></span>'+err.message,'',
     //   {
@@ -102,7 +106,8 @@ export class SaveapdetailsComponent implements OnInit {
     //     positionClass: 'toast-top-center',
     //   }
     // );
-    this.toastr.error(err, '', { timeOut: 5000 });
+    console.log(data.message);
+    this.toastr.error(data.message, '', { timeOut: 5000 });
     this.disSpinner = false;
   }
 

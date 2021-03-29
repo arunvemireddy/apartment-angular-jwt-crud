@@ -44,10 +44,10 @@
             background: radial-gradient(#f2f550, transparent);float: right;">Type atleast 2 characters</span>
             </div>
             <div class="col-4">
-                <input class="form-control" type="text" placeholder="Owner" formControlName="Owner" required>
+                <input class="form-control" pattern="[A-Za-z]+" type="text" placeholder="Owner" formControlName="Owner" required maxlength="20">
                     </div>
                     <div class="col-4">
-                <input class="form-control" type="text" placeholder="Contact" formControlName="Contact" required>
+                <input class="form-control" type="text" placeholder="Contact" formControlName="Contact" maxlength="10" required>
                      </div>
                      <div class="col-3">
                         <input hidden class="form-control" type="text" placeholder="id" formControlName="id" required>
