@@ -1,8 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Idle } from '@ng-idle/core';
-import { Keepalive } from '@ng-idle/keepalive';
 import { ToastrService } from 'ngx-toastr';
 import { SaveService } from './save.service';
 import { ApartmentCONSTANT } from './shared/ApartmentCONSTANT';
@@ -28,8 +26,7 @@ export class AppComponent implements OnInit {
     private toastr: ToastrService,
     public router: Router,
     private localService:LoginService,
-    private idle: Idle, 
-    private keepalive: Keepalive) { }
+   ) { }
 
   ngOnInit(){
 
