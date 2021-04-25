@@ -17,6 +17,7 @@ import { AuthGuard } from './shared/services/auth.guard';
 import { AuthInterceptor } from './shared/services/auth.interceptor';
 import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegistrationComponent } from './registration/registration.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     MainComponent,
     LoginComponent,
-    ForgotpwdComponent
+    ForgotpwdComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

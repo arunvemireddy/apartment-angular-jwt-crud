@@ -9,6 +9,7 @@ import { Apartment } from '../Apartment';
 export class ApartmentCONSTANT {
 
  static readonly LOGIN_URI='login';
+ static readonly REGISTER_URI='saveUser';
  static readonly GET_OWNER_DETAILS_URI='getOwnerDetais';
  static readonly SAVE_OWNER_DETAILS_URI='saveOwnerDetails';
  static readonly SEARCH_OWNER_DETAILS_URI='searchOwnerDetails';

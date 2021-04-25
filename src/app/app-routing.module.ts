@@ -5,12 +5,14 @@ import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
+import { RegistrationComponent } from './registration/registration.component';
 import { SaveapdetailsComponent } from './saveapdetails/saveapdetails.component';
 import { AuthGuard } from './shared/services/auth.guard';
 
 const routes: Routes = [
   {path:'',pathMatch:'full',redirectTo:'/login'},
   {path:'login',component:LoginComponent},
+  {path:'register',component:RegistrationComponent},
   {path:'edit',component:EditComponent},
   {path:'home',component:HomeComponent},
   {path:'save',component:SaveapdetailsComponent},

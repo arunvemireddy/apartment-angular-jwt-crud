@@ -1,0 +1,37 @@
+<div class="centered">
+    <div class="card">
+        <div class="card-body">
+            <div>
+                <form #registerForm="ngForm" [formGroup]='registrationForm' (ngSubmit)="register()">
+                    <div class="row" style="margin-bottom: 20px;">
+                        <div class="col-4">
+                        <input class="form-control" type="text" placeholder="Name" formControlName="name">
+                       </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 20px;">
+                        <div class="col-4">
+                        <input class="form-control" type="text" placeholder="Username" formControlName="username">
+                    </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 20px;">
+                        <div class="col-4">
+                        <input class="form-control" type="text" placeholder="Password" formControlName="password">
+                    </div>
+                    </div>
+                    <div class="row"style="margin-bottom: 20px;">
+                        <div class="col-4">
+                        <select formControlName="role">
+                            <option>Admin</option>
+                            <option>Customer</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <button type="submit" class="btn btn-default" [disabled]="registerForm.form.invalid" 
+                        (click)="sendData()">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
