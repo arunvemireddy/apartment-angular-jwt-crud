@@ -35,7 +35,7 @@ export class RegistrationComponent implements OnInit {
     register.username=this.registrationForm.controls['username'].value;
     register.password=this.registrationForm.controls['password'].value;
     roles.push(this.registrationForm.controls['role'].value);
-    register.role=roles;
+    register.roles=roles;
     return register;
   }
 
