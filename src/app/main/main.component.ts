@@ -14,8 +14,8 @@ export class MainComponent implements OnInit {
 
   title = 'apartment';
 
-  apartmentTitle: string;
-  apartmentAddress: string;
+  apartmentTitle: string="ABC Apartment";
+  apartmentAddress: string="Road No:4,XYZ State";
 
   componentOutlet:any=[];
 

@@ -7,7 +7,7 @@ import { Apartment } from './Apartment';
   providedIn: 'root'
 })
 export class SaveService {
-  private baseUrl='http://localhost:8080/api/'; 
+  private baseUrl='http://localhost:8082/api/'; 
 
   httpOptions = {
     headers: new HttpHeaders({
