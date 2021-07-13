@@ -22,6 +22,7 @@ import { ComplaintComponent } from './complaint/complaint.component';
 import { PayComponent } from './pay/pay.component';
 import { CreditCardDirective } from './pay/CreditCardDirective';
 import { GalleryComponent } from './gallery/gallery.component';
+import { MydetailsComponent } from './mydetails/mydetails.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { GalleryComponent } from './gallery/gallery.component';
     ComplaintComponent,
     PayComponent,
     CreditCardDirective,
-    GalleryComponent
+    GalleryComponent,
+    MydetailsComponent
   ],
   imports: [
     BrowserModule,

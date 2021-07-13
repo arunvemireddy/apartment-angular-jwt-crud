@@ -25,6 +25,11 @@ table thead tr th{
     width: 40%;
 }
 
+.buttonClass{
+    background: none;
+    border: none;
+}
+
 
 
 

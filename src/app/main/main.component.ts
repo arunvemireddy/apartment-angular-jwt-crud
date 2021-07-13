@@ -9,6 +9,7 @@ import { ComplaintComponent } from '../complaint/complaint.component';
 import { Router } from '@angular/router';
 import { PayComponent } from '../pay/pay.component';
 import { GalleryComponent } from '../gallery/gallery.component';
+import { MydetailsComponent } from '../mydetails/mydetails.component';
 
 @Component({
   selector: 'app-main',
@@ -109,7 +110,7 @@ export class MainComponent implements OnInit {
    onDetails(){
     this.componentOutlet=[{
       label:'home',
-      component:HomeComponent
+      component:MydetailsComponent
    }]
    }
 
