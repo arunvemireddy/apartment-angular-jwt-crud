@@ -3,14 +3,16 @@
         <div class="card-body">
             <div>
                 <form ngNativeValidate [formGroup]='loginForm' (ngSubmit)="login()">
-                    <div class="row" style="margin-bottom: 20px;">
-                        <div class="col-4">
-                            <input type="text" class="form-control" formControlName="userName" placeholder="User Name" required>
+                    <div class="row mb-2">
+                        <div class="form-floating col-4">
+                            <input class="form-control" type="text" placeholder="User Name" formControlName="userName" required>
+                            <label for="floatingInput">User Name</label>
                         </div>
                     </div>
-                    <div class="row" style="margin-bottom: 20px;">
-                        <div class="col-4">
+                    <div class="row mb-2">
+                        <div class=" form-floating col-4">
                             <input type="password" class="form-control" formControlName="password" placeholder="Password" required>
+                            <label for="floatingInput">Password</label>
                             <a routerLink='/forgotPwd'>Forgot Password</a>
                             <a routerLink='/register'>Register</a>
                         </div>
@@ -25,3 +27,4 @@
         </div>
     </div>
 </div>
+

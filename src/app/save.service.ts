@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
 import { Observable } from 'rxjs'; 
 import { Apartment } from './Apartment';
 
@@ -19,7 +19,7 @@ export class SaveService {
     })
   };
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,) { }
 
   saveDetails(apdetails:object):Observable<any>{
     return this.http.post(`${this.baseUrl}`+'save', apdetails,{responseType:'text'});  
@@ -42,8 +42,9 @@ export class SaveService {
   }
 
 
-  getService(url:string,successCallback,errorCallback){
-    return this.http.get(`${this.baseUrl}`+url,this.httpOptions).subscribe(
+  getService(url:string,successCallback,errorCallback,params?:HttpParams){  
+    console.log(params);
+    return this.http.get(`${this.baseUrl}`+url,{params}).subscribe(
       (data)=>successCallback(data),
       (error)=>errorCallback(error)
     );

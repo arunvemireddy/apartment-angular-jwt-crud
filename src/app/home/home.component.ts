@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApartmentCONSTANT } from '../shared/ApartmentCONSTANT';
 import { SaveService } from '../save.service';
 import { LoginService } from '../shared/services/login.service';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -14,30 +15,85 @@ export class HomeComponent implements OnInit {
   ownerDetails: any = [];
   detais: any;
   tableTitle: string = 'Apartment Details';
+  pageNo: any=0;
+  pageSize:any=10;
+  totalRecords:any;
+  totalPages:any;
 
-  constructor(private saveService: SaveService,private loginService:LoginService) { }
+  constructor(private saveService: SaveService,private loginService:LoginService) {
+    // setInterval(()=>{
+    //  this.getOwnerDetails();
+    // },1000)
+   }
 
   ngOnInit(): void {
-    this.getOwnerDetails();
+    this.sendPage(this.pageSize);
     // this.initializeJson();
   }
 
 
   getOwnerDetails() {
-     this.saveService.getService(ApartmentCONSTANT.GET_OWNER_DETAILS_URI,res=>this.prepareData(res),err=>this.showErrorMessage(err));
+    const page= new HttpParams({
+      fromObject:{
+        pageNo:this.pageNo,
+        pageSize:this.pageSize
+      }
+    });
+     this.saveService.getService(ApartmentCONSTANT.GET_OWNER_DETAILS_URI,res=>this.prepareData(res),err=>this.showErrorMessage(err),page);
   //  this.loginService.getService(ApartmentCONSTANT.GET_OWNER_DETAILS_URI,res=>this.prepareData(res),err=>this.showErrorMessage(err));
   }
 
-  prepareData(data: any) {
-    for (let i = 0; i < data.length; i++) {
-      this.ownerDetails.push(data[i]);
-    }
+  prepareData(data:any) {
+      this.ownerDetails=data[0];
+      this.totalRecords=data[1];
+      this.totalPages=Math.floor(this.totalRecords/this.pageSize) ;
+      console.log(this.totalPages);
   }
 
   showErrorMessage(err:any){
    alert(err)
   }
 
+  nextPage(){
+    if(this.pageNo<this.totalPages){
+      this.pageNo++;
+    }
+    
+
+    const page= new HttpParams({
+      fromObject:{
+        pageNo:this.pageNo,
+        pageSize:this.pageSize
+      }
+    });
+    this.saveService.getService(ApartmentCONSTANT.GET_OWNER_DETAILS_URI,res=>this.prepareData(res),err=>this.showErrorMessage(err),page);
+  }
+
+  prevPage(){
+    if(this.pageNo>0){
+      this.pageNo--;
+    }
+    
+    const page= new HttpParams({
+      fromObject:{
+        pageNo:this.pageNo,
+        pageSize:this.pageSize
+      }
+    });
+    this.saveService.getService(ApartmentCONSTANT.GET_OWNER_DETAILS_URI,res=>this.prepareData(res),err=>this.showErrorMessage(err),page);
+  }
+
+  sendPage(pageSize:any){
+    console.log(pageSize);
+    this.pageSize=pageSize;
+    const page= new HttpParams({
+      fromObject:{
+        pageNo:this.pageNo,
+        pageSize:this.pageSize
+      }
+    });
+    this.saveService.getService(ApartmentCONSTANT.GET_OWNER_DETAILS_URI,res=>this.prepareData(res),err=>this.showErrorMessage(err),page);
+  }
 
 
   initializeJson() {

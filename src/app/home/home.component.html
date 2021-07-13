@@ -1,21 +1,102 @@
-<h4 style="margin-left: 25px;  height: 34px;margin-top: 30px;">{{tableTitle}}</h4>
+
+<div class="d-flex justify-content-between">
+<h4 class="ms-3">{{tableTitle}}</h4>
+<div class="accordion accordion-flush mb-2 float-end" id="accordionExample" style="display: inline-block;">
+    <div class="accordion-item">
+        <!-- <h2 class="accordion-header" id="headingOne"> -->
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseTwo"
+                 style="background: none;border: none;outline: none;box-shadow: none;">
+               
+            </button>
+        <!-- </h2> -->
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <div class="d-flex">
+                    <i class="fa fa-refresh mt-1 me-3" style="cursor: pointer;" title="Refresh" aria-hidden="true"
+                        (click)="getOwnerDetails()"></i>
+                    <h6 class="mt-1 me-3">Page Size</h6>
+                    <select #box class="selectDropdown me-3" id="pageSize" name="size" (change)="sendPage(box.value)">
+                        <option value=10>10</option>
+                        <option value=20>20</option>
+                        <option value=30>30</option>
+                        <option value=40>40</option>
+                    </select>
+                    <p class="pr-1">Total Pages</p>
+                    <p class="pr-3 me-3">{{totalPages}}</p>
+                    <button class="buttonClass me" (click)="prevPage()"><i class="fa fa-angle-left"></i></button>
+                    <input class="inputClass" [(ngModel)]="pageNo">
+                    <button class="buttonClass" (click)="nextPage()"><i class="fa fa-angle-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class=" d-flex justify-content-between" style="margin-left: 20px;">
+    <h4>{{tableTitle}}</h4>
+    <div class="d-flex mt-2">
+        <button style="background: none;border: none;" class="me-3" type="button" data-bs-toggle="collapse"
+            data-bs-target="#options" aria-expanded="false" aria-controls="collapseExample">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+        </button>
+        <div class="collapse" id="options">
+            <div class="d-flex">
+                <i class="fa fa-refresh mt-1 me-3" style="cursor: pointer;" title="Refresh" aria-hidden="true"
+                    (click)="getOwnerDetails()"></i>
+                <h6 class="mt-1 me-3">Page Size</h6>
+                <select #box class="selectDropdown me-3" id="pageSize" name="size" (change)="sendPage(box.value)">
+                    <option value=10>10</option>
+                    <option value=20>20</option>
+                    <option value=30>30</option>
+                    <option value=40>40</option>
+                </select>
+                <p class="pr-1">Total Pages</p>
+                <p class="pr-3 me-3">{{totalPages}}</p>
+                <button class="buttonClass me" (click)="prevPage()"><i class="fa fa-angle-left"></i></button>
+                <input class="inputClass" [(ngModel)]="pageNo">
+                <button class="buttonClass me-4" (click)="nextPage()"><i class="fa fa-angle-right"></i></button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
 <div class="card table-responsive" style="height: 500px;margin-left: 16px;margin-top: 10px;width: 98%;">
-<table class="table table-striped">
-    <thead>
-        <tr>
-        <th>#</th>
-        <th>Owner Name</th>
-        <th>Flat No</th>
-        <th>Contact</th>
-        </tr>
-    </thead>
-    <tbody *ngFor="let row of ownerDetails">
-        <tr>
-            <td>{{row.id}}</td>
-            <td>{{row.name}}</td>
-            <td>{{row.flatno}}</td>
-            <td>{{row.contact}}</td>
-        </tr>
-    </tbody>
-</table>
+    <table class="table table-borderless table-striped table-dark">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Owner Name</th>
+                <th>Flat No</th>
+                <th>Contact</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let row of ownerDetails">
+            <tr>
+                <td>{{row.id}}</td>
+                <td>
+                    <a>{{row.name}}</a>
+                </td>
+                <td>{{row.flatno}}</td>
+                <td>{{row.contact}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>

@@ -1,0 +1,12 @@
+.card{
+    margin-top: 50px;
+}
+
+.card-header{
+    border-radius: 5px;
+    box-shadow: 0 8px 16px 0 rgba(38, 0, 255, 0.2), 0 6px 20px 0 rgba(76, 0, 255, 0.19);
+}
+
+/* .payBtn{
+    box-shadow: 0 9px #999;
+} */

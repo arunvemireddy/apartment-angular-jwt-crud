@@ -1,29 +1,96 @@
-<div class="row">
-    <div class="container-fluid header">
+<div class="row header">
+    <div class="col">
+        <a  href="https://www.google.com/maps/place/Dwaraka+SN+Residency,
+        +Dwaraka+Nagar+Colony,+DRDL+Colony,+Hastinapuram,+Hyderabad,
+        +Telangana+500079/@17.3231621,78.5504544,17z/data=!3m1!4b1!4m5!
+        3m4!1s0x3bcba210ef7ab48f:0x3a32b6a6da2cd94!8m2!3d17.323157!4d78.5526431"
+        target="_blank" style="color: white;text-decoration: none;float: left;padding-left: 40px;">
+        <i class="fa fa-map-marker mt-3" aria-hidden="true" style="margin-right: -17px;"></i>
+        <span style="font-size: 12px;">Location</span><br>
+        <span style="margin-right: 42px;">Hyderabad</span>
+    </a>
+    
+     
+    </div>
+
+    <div class="col">
         <h2>{{apartmentTitle}}</h2>
         <h6>{{apartmentAddress}}</h6>
-        
-        <div style="float: right;margin-top: -47px;margin-right: -15px;">
-            <button type="button" data-toggle="tooltip" data-placement="bottom" title="LogOut" style="margin-right: 31px;
-            margin-top: -3px;" (click)='logOut()'><i class="fa fa-sign-out" style="font-size:24px"></i></button>
+    </div>
+
+    <div class="col">
+        <div class="mt-1" style="float: right;">
+            <i class="fa fa-user-circle mt-3"> Hi,{{userName | titlecase}}</i>
         </div>
+
     </div>
 </div>
 
-<div class="row">
-    <nav class="navbar menu" style="width: 100%;">
-        <a class="navbar-brand" (click)='onHome()'>
-            <i class="fa fa-home" style="font-size:24px"></i> Home</a>
-        <a class="navbar-brand" (click)='onAdmin()'>
-            <i class="fa fa-user-circle-o" style="font-size:24px"></i> Admin</a>
-        <a class="navbar-brand" (click)='onHelp()'>
-            <i class="fa fa-info-circle" style="font-size:24px"></i> Help</a>
-        <a class="navbar-brand" (click)='onComplaints()'>
-            <i class="fa fa-question-circle" style="font-size:24px"></i> Complaints</a>
-        <a class="navbar-brand" (click)='onGlimpse()'>
-            <i class="fa fa-camera" style="font-size:24px"></i> Glimpses</a>
+<div class="mt-1">
+    <nav class="navbar navbar-expand-lg navbar-light nvbg">
+        <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+        aria-controls="offcanvasExample" style="float: left;background: none;border: none;color: white;">
+        <i class="fa fa-bars"> All</i>
+    </button>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel" style="min-width: 25%;">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title ms-5" id="offcanvasExampleLabel" style="color: black;">Hi,{{userName | titlecase}}</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                aria-label="Close">
+            </button>
+        </div>
+        <div class="offcanvas-body  ms-0">
+            <div class="row">
+                <button class="btn btn-primary mt-3 " type="button" data-toggle="tooltip"
+                data-placement="bottom" title="LogOut" data-bs-dismiss="offcanvas"  (click)="onDetails()">
+                My Details</button>
+            </div>
+            <div class="row">
+                <button class="btn btn-primary mt-3 " type="button" data-toggle="tooltip"
+                data-placement="bottom" title="LogOut" data-bs-dismiss="offcanvas"  (click)="onPay()">
+                Pay Maintenance</button>
+            </div>    
+            <div class="row">
+                <button  class="btn btn-primary mt-3" type="button" data-toggle="tooltip"
+            data-placement="bottom" title="LogOut" (click)='logOut()'>
+            <i class="fa fa-sign-out"></i>Logout</button>
+            </div>
+        </div>
+    </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" (click)='onHome()'>
+                        <i class="fa fa-home" style="font-size:24px"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)='onAdmin()'>
+                        <i class="fa fa-user-circle-o" style="font-size:24px"></i> Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)='onHelp()'>
+                        <i class="fa fa-info-circle" style="font-size:24px"></i> Help</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)='onComplaints()'>
+                        <i class="fa fa-question-circle" style="font-size:24px"></i> Complaints</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)='onGlimpse()'>
+                        <i class="fa fa-camera" style="font-size:24px"></i> Glimpses</a>
+                </li>
+            </ul>
+        </div>
     </nav>
 </div>
+
 
 <div *ngFor="let tab of componentOutlet">
     <div *ngComponentOutlet="tab.component"></div>

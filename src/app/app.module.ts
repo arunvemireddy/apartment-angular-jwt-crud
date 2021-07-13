@@ -18,6 +18,10 @@ import { AuthInterceptor } from './shared/services/auth.interceptor';
 import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistrationComponent } from './registration/registration.component';
+import { ComplaintComponent } from './complaint/complaint.component';
+import { PayComponent } from './pay/pay.component';
+import { CreditCardDirective } from './pay/CreditCardDirective';
+import { GalleryComponent } from './gallery/gallery.component';
 
 
 @NgModule({
@@ -29,7 +33,11 @@ import { RegistrationComponent } from './registration/registration.component';
     MainComponent,
     LoginComponent,
     ForgotpwdComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ComplaintComponent,
+    PayComponent,
+    CreditCardDirective,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +49,8 @@ import { RegistrationComponent } from './registration/registration.component';
     ToastrModule.forRoot({
       timeOut:3000
     }),
-    NgSelectModule
+    NgSelectModule,
+  
   ],
   providers: [LoginService,AuthGuard,[{ provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}]],
   bootstrap: [AppComponent]

@@ -40,7 +40,10 @@ export class LoginComponent implements OnInit {
   }
 
   showSuccessMsg(data: any) {
+    this.loginService.setUserName(data.message);
     this.loginService.login(data.token);
+    //console.log(data.message);
+    
     this.router.navigate(['main']);
     // this.toastr.success(
     //   '<i class="fa fa-check"></i>' + data.message, '',

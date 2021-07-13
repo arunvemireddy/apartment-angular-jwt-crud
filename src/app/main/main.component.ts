@@ -1,9 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HomeComponent } from '../home/home.component';
 import { SaveService } from '../save.service';
 import { SaveapdetailsComponent } from '../saveapdetails/saveapdetails.component';
 import { LoginService } from '../shared/services/login.service';
 import { ApartmentCONSTANT } from '../shared/ApartmentCONSTANT';
+import { Subject } from 'rxjs';
+import { ComplaintComponent } from '../complaint/complaint.component';
+import { Router } from '@angular/router';
+import { PayComponent } from '../pay/pay.component';
+import { GalleryComponent } from '../gallery/gallery.component';
 
 @Component({
   selector: 'app-main',
@@ -16,13 +21,30 @@ export class MainComponent implements OnInit {
 
   apartmentTitle: string="ABC Apartment";
   apartmentAddress: string="Road No:4,XYZ State";
+  userName:any;
+
+  user= new Subject<string>();
 
   componentOutlet:any=[];
+  dateMessage:any;
 
 
-  constructor(private loginService:LoginService,private saveService:SaveService ) { }
+  constructor(private loginService:LoginService,private saveService:SaveService,private route:Router ) { 
+    setInterval(()=>{
+        this.getDate();
+    },1000)
+  }
 
   ngOnInit(): void {
+    // this.user.subscribe((data)=>{this.userName=data});
+    // this.user.next(this.loginService.getUserName());
+    this.userName=this.loginService.getUserName();
+    this.saveService.getService(ApartmentCONSTANT.GET_APARTMENT_DETAILS_URI,res=>this.getApartmentDetails(res),err=>this.showErrorMessage(err));
+   
+  //  console.log(this.userName);
+  }
+
+  asycall(){
     this.saveService.getService(ApartmentCONSTANT.GET_APARTMENT_DETAILS_URI,res=>this.getApartmentDetails(res),err=>this.showErrorMessage(err));
   }
 
@@ -30,7 +52,7 @@ export class MainComponent implements OnInit {
     data.forEach(element => {
       this.apartmentTitle=element.aptName;
       this.apartmentAddress=element.aptAddress
-    });
+    });  
   }
   
   onHome(){
@@ -59,14 +81,14 @@ export class MainComponent implements OnInit {
    onComplaints(){
      this.componentOutlet=[{
        label:'home',
-       component:HomeComponent
+       component:ComplaintComponent
     }]
    }
  
    onGlimpse(){
      this.componentOutlet=[{
        label:'home',
-       component:HomeComponent
+       component:GalleryComponent
     }]
    }
 
@@ -77,5 +99,24 @@ export class MainComponent implements OnInit {
 
    showErrorMessage(err:any){
     alert(err)
+   }
+
+   getDate(){
+     let date= new Date();
+     this.dateMessage=date;
+   }
+
+   onDetails(){
+    this.componentOutlet=[{
+      label:'home',
+      component:HomeComponent
+   }]
+   }
+
+   onPay(){
+    this.componentOutlet=[{
+      label:'home',
+      component:PayComponent
+   }]
    }
 }

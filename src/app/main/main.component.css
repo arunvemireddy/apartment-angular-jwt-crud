@@ -1,3 +1,20 @@
 .logout{
     float: right;
 }
+
+.nvbg{
+    background-color: rgb(0, 176, 182);
+}
+.nav-link{
+    color: white!important;
+}
+
+.nav-item{
+    cursor: pointer;
+}
+
+.btnClass{
+    background: none;
+    border: none;
+    color: white;
+}
