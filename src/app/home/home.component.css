@@ -17,8 +17,9 @@ table thead tr th{
 }
 
 .inputClass{
-    height: 30px!important;  
-    width: 20px; 
+   
+    border: none;
+    outline: none;
 }
 
 .title{
@@ -29,7 +30,12 @@ table thead tr th{
     background: none;
     border: none;
 }
-
+.accordion-body{
+padding-top: 0rem!important;
+padding-right: 1.25rem!important;
+padding-bottom: 0rem!important;
+padding-left: 1.25rem!important;
+}
 
 
 

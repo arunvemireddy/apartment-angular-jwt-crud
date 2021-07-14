@@ -6,8 +6,7 @@
         <h2 class="accordion-header" id="headingOne">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseTwo"
-                 style="background: none;border: none;outline: none;box-shadow: none;">
-               
+                 style="background: none;border: none;outline: none;box-shadow: none;" title="options">
             </button>
         </h2>
         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
@@ -25,8 +24,8 @@
                     </select>
                     <p class="pr-1">Total Pages</p>
                     <p class="pr-3 me-3">{{totalPages}}</p>
-                    <button class="buttonClass me" (click)="prevPage()"><i class="fa fa-angle-left"></i></button>
-                    <input class="inputClass" [(ngModel)]="pageNo">
+                    <button class="buttonClass" (click)="prevPage()"><i class="fa fa-angle-left"></i></button>
+                    <span style="margin-top: 3px;">{{pageNo}}</span>
                     <button class="buttonClass" (click)="nextPage()"><i class="fa fa-angle-right"></i></button>
                 </div>
             </div>
