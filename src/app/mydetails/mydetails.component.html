@@ -17,7 +17,7 @@
                 </tr>
                 <tr>
                     <th>Role</th>
-                    <td>{{role[0]}}</td>
+                    <td>{{role}}</td>
                 </tr>
             </table>
         </div>
@@ -36,35 +36,29 @@
         <div class="accordion-body">
             <table class="table table-striped">
                 <tr>
-                    <th>ID</th>
-                    <td>
-                      <input class="form-control" type="text" [(ngModel)]="userId" aria-describedby="addon-wrapping">
-                    </td>
-                </tr>
-                <tr>
                     <th>Name</th>
                     <td>
-                        <input class="form-control" type="text" [(ngModel)]="name" aria-describedby="addon-wrapping">
+                        <input class="form-control" type="text" [(ngModel)]="ename" aria-describedby="addon-wrapping">
                     </td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <th>UserName</th>
                     <td>
-                        <input class="form-control" type="text" [(ngModel)]="userName" aria-describedby="addon-wrapping">
+                        <input class="form-control" type="text" [(ngModel)]="euserName" aria-describedby="addon-wrapping">
                     </td>
-                </tr>
+                </tr> -->
                 <tr>
                     <th>Role</th>
                     <td>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>{{role[0]}}</option>
-                            <option value="1">Admin</option>
-                            <option value="2">Customer</option>
+                        <select class="form-select" aria-label="Default select example" (change)="selectChange($event.target.value)">
+                            <option>{{erole}}</option>
+                            <option>Admin</option>
+                            <option>Customer</option>
                           </select>
                     </td>
                 </tr>
             </table>
-            <button class="btn btn-primary">Submit</button>
+            <button class="btn btn-primary" (click)="editDetails()">Submit</button>
         </div>
       </div>
     </div>

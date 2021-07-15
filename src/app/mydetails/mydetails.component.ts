@@ -17,9 +17,29 @@ export class MydetailsComponent implements OnInit {
   userName:any;
   name:any;
   role:any;
+  euserName:any;
+  ename:any;
+  erole:any;
+  UserLoginDTO:any={};
 
   ngOnInit(): void {
     this.findOwnerByName();
+  }
+
+  editDetails(){
+    let url:any=ApartmentCONSTANT.UPDATEUSERBYNAME_URI;
+    let uName:any=this.loginService.getUserName();
+    console.log(uName);
+     this.UserLoginDTO.euserName=this.euserName;
+     this.UserLoginDTO.ename=this.ename;
+     this.UserLoginDTO.roles=this.erole;
+     let params= new HttpParams({
+      fromObject:{
+        userName:uName
+      }
+    });
+     this.service.postService(url,(data)=>this.onSuccess(data),(data)=>this.onFailure(data),this.UserLoginDTO,params);
+     this.findOwnerByName();
   }
 
   findOwnerByName(){
@@ -39,10 +59,17 @@ export class MydetailsComponent implements OnInit {
        this.userName=data.username;
        this.name=data.name;
        this.role=data.roles;
+       this.euserName=data.username;
+       this.ename=data.name;
+       this.erole=data.roles;
   }
 
   onFailure(data:any){
-
+     
   }
 
+  selectChange(data){
+    this.erole=[];
+  this.erole.push(data);
+  }
 }
