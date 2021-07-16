@@ -47,10 +47,7 @@ export class PayComponent implements OnInit {
     this.service.getService(url,(data)=>this.successchangeFlatCallBack(data),(data)=>this.errorchangeFlatCallBack(data),params);
   }
   successSearchFlatCallBack(data){
-    this.flatList=[];
-    for(let i=0;i<data.length;i++){
-      this.flatList.push(data[i].flatno);
-    }
+    this.flatList=data;
   }
 
   errorSearchFlatCallBack(data){
