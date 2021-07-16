@@ -28,7 +28,7 @@ export class PayComponent implements OnInit {
   }
 
   onSearchFlat(data){
-   console.log(data.term);
+
    let flatNo=data.term;
    let url=ApartmentCONSTANT.SEARCH_FLATNO_URI;
    let params= new HttpParams({
@@ -38,7 +38,7 @@ export class PayComponent implements OnInit {
   }
 
   changeFlat(data){
-    console.log(data);
+   
     let flatNo=data;
     let url=ApartmentCONSTANT.CHANGE_FLATNO_URI;
     let params= new HttpParams({
@@ -54,8 +54,8 @@ export class PayComponent implements OnInit {
     this.flatList=[];
   }
   successchangeFlatCallBack(data){
-     console.log(data[0].name)
-     this.ownerDetailsForm.patchValue({ownerName:data[0].name});
+
+     this.ownerDetailsForm.patchValue({ownerName:data});
   }
   errorchangeFlatCallBack(data){
 
