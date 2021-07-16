@@ -21,6 +21,8 @@ export class MydetailsComponent implements OnInit {
   ename:any;
   erole:any;
   UserLoginDTO:any={};
+  disSpinner:boolean=false;
+  disBtn:boolean=true;
 
   ngOnInit(): void {
     this.findOwnerByName();

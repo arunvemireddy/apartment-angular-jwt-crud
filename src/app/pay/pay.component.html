@@ -1,3 +1,26 @@
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="ownerDetailsForm">
+            <div class="row">
+                <div class="form-floating col">
+                    <ng-select class="form-control" id="floatingSelect" aria-placeholder="Flat No"  formControlName="flatNo"
+                    (search)="onSearchFlat($event)" (ngModelChange)="changeFlat($event)" [items]="flatList"></ng-select>
+                    <label for="floatingSelect">Flat No</label>
+                </div>
+                <div class="form-floating col">
+                    <input type="text" class="form-control" formControlName="ownerName" placeholder="Owner Name">
+                    <label for="floatingInput">Owner Name</label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
 <div class="card " style="align-items: center;color: white;">
     <div class="card-header bg-dark">
         <div class="card-body">
@@ -20,7 +43,7 @@
                     </tr>
                     <div class="mb-3"></div>
                 </table>
-                <button class="btn btn-primary payBtn mb-3 w-100" type="submit" >Pay</button>
+                <button class="btn btn-primary payBtn mb-3 w-100" type="submit">Pay</button>
                 <ul class="list-group list-group-flush ">
                     <li class="list-group-item bg-dark">
                         <a target="_blank" href="https://pay.google.com/"><img src="assets/newgpay.png"

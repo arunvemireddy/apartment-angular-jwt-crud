@@ -21,6 +21,8 @@ export class LoginComponent implements OnInit {
   })
 
   loginDetails: any = {};
+  disSpinner:boolean=false;
+  disBtn:boolean=false;
 
   constructor(private saveService: SaveService,
     private fb: FormBuilder,
@@ -34,12 +36,16 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.disSpinner=true;
+    this.disBtn=true;
     this.loginDetails.userName = this.loginForm.controls['userName'].value;
     this.loginDetails.password = this.loginForm.controls['password'].value;
     this.loginService.loginService(ApartmentCONSTANT.LOGIN_URI, (data) => { this.showSuccessMsg(data) }, (err) => { this.showErrorMsg(err) }, this.loginDetails);
   }
 
   showSuccessMsg(data: any) {
+    this.disSpinner=false;
+    this.disBtn=false;
     this.loginService.setUserName(data.message);
     this.loginService.login(data.token);
     //console.log(data.message);
@@ -59,6 +65,8 @@ export class LoginComponent implements OnInit {
   }
 
   showErrorMsg(err: any) {
+    this.disSpinner=false;
+    this.disBtn=false;
     // this.toastr.error(
     //   '<span class="ngwfmt-icons"><i class="fa fa-check"></i></span>'+err.message,'',
     //   {
