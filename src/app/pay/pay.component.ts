@@ -1,6 +1,6 @@
 import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormControlName, FormGroup, Validators,FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { SaveService } from '../save.service';
 import { ApartmentCONSTANT } from '../shared/ApartmentCONSTANT';
 import { CreditCardDirective } from './CreditCardDirective';
@@ -15,6 +15,7 @@ import { CreditCardDirective } from './CreditCardDirective';
 })
 export class PayComponent implements OnInit {
 
+  owName:any;
   ownerDetailsForm= new  FormGroup({
     flatNo: new FormControl(),
     ownerName: new FormControl({value:'',disabled:true})
@@ -54,8 +55,9 @@ export class PayComponent implements OnInit {
     this.flatList=[];
   }
   successchangeFlatCallBack(data){
-
+      console.log(data);
      this.ownerDetailsForm.patchValue({ownerName:data});
+     this.owName=data;
   }
   errorchangeFlatCallBack(data){
 

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
 import { Observable } from 'rxjs'; 
 import { Apartment } from './Apartment';
+import { map } from 'jquery';
 
 @Injectable({
   providedIn: 'root'
@@ -57,5 +58,10 @@ export class SaveService {
 
   public generateToken(request){
       return this.http.post(`${this.baseUrl}`+'login',request,{responseType: 'text' as 'json'});
+  }
+
+  downloadService(url:string){
+    
+    return this.http.get(`${this.baseUrl}`+url,{ responseType: 'blob' });
   }
 }

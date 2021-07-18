@@ -23,7 +23,8 @@ import { PayComponent } from './pay/pay.component';
 import { CreditCardDirective } from './pay/CreditCardDirective';
 import { GalleryComponent } from './gallery/gallery.component';
 import { MydetailsComponent } from './mydetails/mydetails.component';
-
+import { saveAs } from 'file-saver';
+import * as FileSaver from 'file-saver';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,7 @@ import { MydetailsComponent } from './mydetails/mydetails.component';
     ToastrModule.forRoot({
       timeOut:3000
     }),
-    NgSelectModule,
+    NgSelectModule
   
   ],
   providers: [LoginService,AuthGuard,[{ provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}]],

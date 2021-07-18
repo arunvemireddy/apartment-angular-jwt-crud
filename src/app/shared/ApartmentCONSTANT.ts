@@ -21,5 +21,6 @@ export class ApartmentCONSTANT {
  static readonly GET_APARTMENT_DETAILS_URI='getApartmentDetails';
  static readonly FINDUSERBYNAME_URI='finduserByName';
  static readonly UPDATEUSERBYNAME_URI='updateuserByName';
+ static readonly DOWNLOADOWNERTABLE_URI='downloadownerTable';
 
 }

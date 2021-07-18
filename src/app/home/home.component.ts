@@ -4,6 +4,12 @@ import { ApartmentCONSTANT } from '../shared/ApartmentCONSTANT';
 import { SaveService } from '../save.service';
 import { LoginService } from '../shared/services/login.service';
 import { HttpParams } from '@angular/common/http';
+import * as FileSaver from 'file-saver';
+import * as XLSX from 'xlsx';
+const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+const EXCEL_EXTENSION = '.csv';
+const EXCEL_EXTENSION_XLSX = '.xlsx';
+
 
 @Component({
   selector: 'app-home',
@@ -19,6 +25,7 @@ export class HomeComponent implements OnInit {
   pageSize:any=10;
   totalRecords:any;
   totalPages:any;
+  
 
   constructor(private saveService: SaveService,private loginService:LoginService) {
     // setInterval(()=>{
@@ -149,6 +156,28 @@ export class HomeComponent implements OnInit {
         flatNo: 203
       }
     ];
+
+  }
+
+  
+
+  downloadFile(){
+    console.log("sa");
+    let url:any=ApartmentCONSTANT.DOWNLOADOWNERTABLE_URI;
+    // this.saveService.downloadService(url).subscribe(x=>{
+    //   this.successDownload(x)
+    // })
+  //  let csv:any;
+  //  const data: Blob = new Blob([this.csvToBuffer(csv)], { type: EXCEL_TYPE });
+ // this.saveService.getService(url,(data)=>this.successDownload(data),(data)=>this.errorDownload(data))
+ this.saveService.downloadService(url).subscribe(blob=>FileSaver.saveAs(blob,'data.csv'))
+  }
+
+  successDownload(data:Blob){
+    // console.log(data);
+    FileSaver.saveAs(data,"data.csv");
+  }
+  errorDownload(data){
 
   }
 }
