@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormControlName, FormGroup, Validators,FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { SaveService } from '../save.service';
 import { ApartmentCONSTANT } from '../shared/ApartmentCONSTANT';
-import { CreditCardDirective } from './CreditCardDirective';
 
 
 

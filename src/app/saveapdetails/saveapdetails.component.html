@@ -5,7 +5,7 @@
             <div class="row mb-3" style="width: 60%;margin-left: 10px;">
                 <div class="form-floating col-4">
                     <input type="text" class="form-control" placeholder="Owner Name" formControlName="ownerName"
-                        required>
+                        required limit-to="30">
                     <label for="floatingInput">Owner Name</label>
                 </div>
                 <div class=" form-floating col-4">
@@ -14,7 +14,7 @@
                 </div>
                 <div class="form-floating col-4">
                     <input type="number" class="form-control" placeholder="Contact" formControlName="contactNo"
-                        required>
+                        required limit-to="10">
                     <label for="floatingInput">Contact</label>
                 </div>
             </div>
@@ -45,12 +45,12 @@
                 </div>
                 <div class="form-floating col-4">
                     <input class="form-control" pattern="[A-Za-z]+" type="text" placeholder="Owner"
-                        formControlName="Owner" required maxlength="20">
+                        formControlName="Owner" required maxlength="20" limit-to="30">
                         <label for="floatingInput">Owner</label>
                 </div>
                 <div class="form-floating col-4">
                     <input class="form-control" type="text" placeholder="Contact" formControlName="Contact"
-                        maxlength="10" required>
+                        maxlength="10" required limit-to="10">
                         <label for="floatingInput">Contact</label>
                 </div>
                 <div class="col-3">

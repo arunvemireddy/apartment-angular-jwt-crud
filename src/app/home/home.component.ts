@@ -28,14 +28,10 @@ export class HomeComponent implements OnInit {
   
 
   constructor(private saveService: SaveService,private loginService:LoginService) {
-    // setInterval(()=>{
-    //  this.getOwnerDetails();
-    // },1000)
    }
 
   ngOnInit(): void {
     this.sendPage(this.pageSize);
-    // this.initializeJson();
   }
 
 
@@ -47,14 +43,12 @@ export class HomeComponent implements OnInit {
       }
     });
      this.saveService.getService(ApartmentCONSTANT.GET_OWNER_DETAILS_URI,res=>this.prepareData(res),err=>this.showErrorMessage(err),page);
-  //  this.loginService.getService(ApartmentCONSTANT.GET_OWNER_DETAILS_URI,res=>this.prepareData(res),err=>this.showErrorMessage(err));
   }
 
   prepareData(data:any) {
-      this.ownerDetails=data[0];
-      this.totalRecords=data[1];
+      this.ownerDetails=data.content;
+      this.totalRecords=data.totalElements;
       this.totalPages=Math.floor(this.totalRecords/this.pageSize) ;
-      console.log(this.totalPages);
   }
 
   showErrorMessage(err:any){
@@ -91,7 +85,6 @@ export class HomeComponent implements OnInit {
   }
 
   sendPage(pageSize:any){
-    console.log(pageSize);
     this.pageSize=pageSize;
     const page= new HttpParams({
       fromObject:{
@@ -159,24 +152,15 @@ export class HomeComponent implements OnInit {
 
   }
 
-  
-
   downloadFile(){
-    console.log("sa");
     let url:any=ApartmentCONSTANT.DOWNLOADOWNERTABLE_URI;
-    // this.saveService.downloadService(url).subscribe(x=>{
-    //   this.successDownload(x)
-    // })
-  //  let csv:any;
-  //  const data: Blob = new Blob([this.csvToBuffer(csv)], { type: EXCEL_TYPE });
- // this.saveService.getService(url,(data)=>this.successDownload(data),(data)=>this.errorDownload(data))
- this.saveService.downloadService(url).subscribe(blob=>FileSaver.saveAs(blob,'data.csv'))
+    this.saveService.downloadService(url).subscribe(blob=>FileSaver.saveAs(blob,'data.csv'))
   }
 
   successDownload(data:Blob){
-    // console.log(data);
     FileSaver.saveAs(data,"data.csv");
   }
+
   errorDownload(data){
 
   }

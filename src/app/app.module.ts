@@ -20,11 +20,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistrationComponent } from './registration/registration.component';
 import { ComplaintComponent } from './complaint/complaint.component';
 import { PayComponent } from './pay/pay.component';
-import { CreditCardDirective } from './pay/CreditCardDirective';
+import { CreditCardDirective } from './directives/CreditCardDirective';
 import { GalleryComponent } from './gallery/gallery.component';
 import { MydetailsComponent } from './mydetails/mydetails.component';
 import { saveAs } from 'file-saver';
 import * as FileSaver from 'file-saver';
+import { LimitToDirective } from './directives/LimitToDirective';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import * as FileSaver from 'file-saver';
     PayComponent,
     CreditCardDirective,
     GalleryComponent,
-    MydetailsComponent
+    MydetailsComponent,
+    LimitToDirective
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import * as FileSaver from 'file-saver';
     ToastrModule.forRoot({
       timeOut:3000
     }),
-    NgSelectModule
+    NgSelectModule,
+    
   
   ],
   providers: [LoginService,AuthGuard,[{ provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}]],
