@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
   pageSize:any=10;
   totalRecords:any;
   totalPages:any;
+  OwnerDetails:any;
   
 
   constructor(private saveService: SaveService,private loginService:LoginService) {

@@ -87,12 +87,13 @@
             <tr>
                 <th>#</th>
                 <th>Owner Name</th>
-                <th>Flat No</th>
                 <th>Contact</th>
+                <th>Flat No</th>
+
             </tr>
         </thead>
-        <tbody *ngFor="let row of ownerDetails">
-            <tr>
+        <tbody>
+            <tr *ngFor="let row of ownerDetails">
                 <td>{{row.id}}</td>
                 <td>
                     <a>{{row.name}}</a>

@@ -7,7 +7,7 @@
                     <th>Flat No</th>
                     <td>
                         <ng-select class="form-select" (search)="onSearchFlat($event)" (change)="changeFlat($event)"
-                            [items]="flatList" [virtualScroll]="true"></ng-select>
+                            [items]="flatList" [virtualScroll]="true" placeholder="Flat No"></ng-select>
 
                         <!-- <select class="form-select"  [(ngModel)]="selectedname" (search)="onSearchFlat($event)"
                             (change)="changeFlat($event)">
@@ -18,18 +18,18 @@
                 <div class="mb-3"></div>
                 <tr>
                     <th>Owner Name</th>
-                    <td><input class="form-control" type="text" [(ngModel)]="owName" disabled></td>
+                    <td><input class="form-control" type="text" [(ngModel)]="owName" disabled placeholder="Owner Name"></td>
                 </tr>
                 <div class="mb-3"></div>
                 <tr>
                     <th>Card Number</th>
                     <td><input class="form-control" name="credit-card" type="text"
-                            placeholder="Enter your 16-digit card number" credit-card></td>
+                            placeholder="Debit/Credit Card Number" credit-card></td>
                 </tr>
                 <div class="mb-3"></div>
                 <tr>
                     <th>CVV</th>
-                    <td><input class="form-control" type="number" limit-to="3"></td>
+                    <td><input class="form-control" type="number" limit-to="3" placeholder="CVV"></td>
                 </tr>
                 <div class="mb-3"></div>
                 <tr>

@@ -37,6 +37,11 @@ padding-bottom: 0rem!important;
 padding-left: 1.25rem!important;
 }
 
+th i::before{
+  display: inline-block;
+  transform: rotate(180deg);
+}
+
 
 
     

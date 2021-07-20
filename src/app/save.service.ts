@@ -51,7 +51,7 @@ export class SaveService {
     );
   }
 
-  postService(url:string,successCallback,errorCallback,obj:Object,params?:HttpParams){
+  postService(url:string,successCallback,errorCallback,obj?:Object,params?:HttpParams){
     console.log(params);
     return this.http.post(`${this.baseUrl}`+url,obj,{params}).subscribe((data)=>successCallback(data),(error)=>errorCallback(error.error)); 
   }
