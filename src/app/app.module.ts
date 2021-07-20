@@ -26,6 +26,7 @@ import { MydetailsComponent } from './mydetails/mydetails.component';
 import { saveAs } from 'file-saver';
 import * as FileSaver from 'file-saver';
 import { LimitToDirective } from './directives/LimitToDirective';
+import { popper } from '@popperjs/core';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import { LimitToDirective } from './directives/LimitToDirective';
     ToastrModule.forRoot({
       timeOut:3000
     }),
-    NgSelectModule,
+    NgSelectModule
     
   
   ],

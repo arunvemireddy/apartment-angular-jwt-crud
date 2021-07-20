@@ -5,6 +5,7 @@ import { SaveService } from '../save.service';
 import { LoginService } from '../shared/services/login.service';
 import { HttpParams } from '@angular/common/http';
 import * as FileSaver from 'file-saver';
+import { popper } from '@popperjs/core';
 import * as XLSX from 'xlsx';
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
 const EXCEL_EXTENSION = '.csv';
@@ -26,6 +27,7 @@ export class HomeComponent implements OnInit {
   totalRecords:any;
   totalPages:any;
   OwnerDetails:any;
+  colName:any=['id','name','flatno','contact'];
   
 
   constructor(private saveService: SaveService,private loginService:LoginService) {
@@ -164,5 +166,17 @@ export class HomeComponent implements OnInit {
 
   errorDownload(data){
 
+  }
+
+  sortColfetch(data){
+    console.log(data);
+    const page= new HttpParams({
+      fromObject:{
+        pageNo:this.pageNo,
+        pageSize:this.pageSize,
+        colName:data
+      }
+    });
+     this.saveService.getService(ApartmentCONSTANT.GET_OWNER_DETAILS_URI,res=>this.prepareData(res),err=>this.showErrorMessage(err),page);
   }
 }
