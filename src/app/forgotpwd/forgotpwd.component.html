@@ -1,16 +1,29 @@
-
 <div class="card">
-    <div class="card-body">
+    <div class="card-header">
         <h2>OTP Sent to your Registered Mail id</h2>
-        <div class="grid-container">
-        <div class="row">
-            <input type="number" placeholder="Enter OTP">
+        <div class="card-body">
+            <form #registerForm="ngForm" [formGroup]="otpForm" (ngSubmit)="sendOtp()">
+                <div class="row mb-5">
+                    <div class="col-3">
+                        <input class="form-control" type="text" placeholder="Enter Username" formControlName="userName">
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-primary" type="submit" [disabled]="registerForm.form.invalid">Generate
+                            OTP</button>
+                    </div>
+                </div>
+            </form>
+            <form #loginForm="ngForm" [formGroup]="newotpForm" (ngSubmit)="validateOtp()">
+            <div class="row">
+                <div class="col-3">
+                    <input class="form-control" type="number" placeholder="Enter OTP" formControlName="otpNumber">
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary" type="submit" [disabled]="loginForm.form.invalid"
+                    [disabled]="loginForm.form.invalid">Validate OTP</button>
+                </div>
+            </div>
+        </form>
         </div>
-        <div class="row">
-        <button class="btn btn-primary" type="submit"> Submit</button>
-    </div>
-    </div>
     </div>
 </div>
-
-

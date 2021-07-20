@@ -19,6 +19,7 @@ export class RegistrationComponent implements OnInit {
      username : new FormControl('',Validators.required),
      password : new FormControl('',Validators.required),
      role : new FormControl('',Validators.required),
+     email: new FormControl('',Validators.required)
     }
   )
 
@@ -34,6 +35,7 @@ export class RegistrationComponent implements OnInit {
     register.name=this.registrationForm.controls['name'].value;
     register.username=this.registrationForm.controls['username'].value;
     register.password=this.registrationForm.controls['password'].value;
+    register.email=this.registrationForm.controls['email'].value;
     roles.push(this.registrationForm.controls['role'].value);
     register.roles=roles;
     return register;
