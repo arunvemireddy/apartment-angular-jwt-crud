@@ -1,6 +1,7 @@
 import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Apartment } from '../Apartment';
 import { SaveService } from '../save.service';
 import { ApartmentCONSTANT } from '../shared/ApartmentCONSTANT';
@@ -12,7 +13,7 @@ import { ApartmentCONSTANT } from '../shared/ApartmentCONSTANT';
 })
 export class ForgotpwdComponent implements OnInit {
 
-  constructor(private service: SaveService) { }
+  constructor(private service: SaveService,private toastr:ToastrService) { }
 
   otpForm = new FormGroup({
     userName: new FormControl('', Validators.required)
@@ -37,10 +38,10 @@ export class ForgotpwdComponent implements OnInit {
   }
 
   success(data) {
-    console.log(data);
+    this.toastr.success(data.message);
   }
   error(data) {
-
+     this.toastr.error(data);
   }
 
   validateOtp() {
