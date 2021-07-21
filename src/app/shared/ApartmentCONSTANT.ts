@@ -24,4 +24,5 @@ export class ApartmentCONSTANT {
  static readonly DOWNLOADOWNERTABLE_URI='downloadownerTable';
  static readonly GENERATEOTP_URI='generateOtp';
  static readonly VALIDATEOTP_URI='validateOtp';
+ static readonly CHANGEPWD_URI='changepassword';
 }

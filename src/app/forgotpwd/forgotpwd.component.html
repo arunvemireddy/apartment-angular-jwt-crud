@@ -1,26 +1,29 @@
-<div class="card mb-5">
+<button class="btn btn-primary mt-5">
+    <span class="fa fa-arrow-left"></span>
+</button>
+<div *ngIf="!hidenewPwd" class="card mb-5 mt-5">
     <div class="card-header">
-        <h2>OTP Sent to your Registered Mail id</h2>
+        <h2>Change Password</h2>
         <div class="card-body">
             <form #registerForm="ngForm" [formGroup]="otpForm" (ngSubmit)="sendOtp()">
                 <div class="row mb-5">
-                    <div class="col-3">
+                    <div class="col-3" style="margin-left: 300px;">
                         <input class="form-control" type="text" placeholder="Enter Username" formControlName="userName">
                     </div>
                     <div class="col">
-                        <button class="btn btn-primary" type="submit" [disabled]="registerForm.form.invalid">Generate
-                            OTP</button>
+                        <button class="btn btn-primary" type="submit" [disabled]="disbtn" [disabled]="registerForm.form.invalid">
+                        <span *ngIf="disSpinner"  class="spinner-border spinner-border-sm"></span> GenerateOTP</button>
                     </div>
                 </div>
             </form>
             <form #loginForm="ngForm" [formGroup]="newotpForm" (ngSubmit)="validateOtp()">
                 <div class="row">
-                    <div class="col-3">
-                        <input class="form-control" type="number" placeholder="Enter OTP" formControlName="otpNumber">
+                    <div class="col-3" style="margin-left: 300px;">
+                        <input class="form-control" type="number" placeholder="Enter OTP" formControlName="otpNumber" required>
                     </div>
                     <div class="col">
-                        <button class="btn btn-primary" type="submit" [disabled]="loginForm.form.invalid"
-                            [disabled]="loginForm.form.invalid">Validate OTP</button>
+                        <button class="btn btn-primary" type="submit" [disabled]="isbtn" [disabled]="loginForm.form.invalid">
+                        <span *ngIf="isSpinner"  class="spinner-border spinner-border-sm"></span> Validate OTP</button>
                     </div>
                 </div>
             </form>
@@ -28,16 +31,18 @@
     </div>
 </div>
 
+
+
 <div *ngIf="hidenewPwd" class="card">
     <div class="card-header">
         <div class="card-body">
-            <form>
+            <form [formGroup]="changePwdForm" (ngSubmit)="changePassword()">
                 <div class="row">
-                    <div class="col-4">
-                        <input class="form-control" type="text" placeholder="new password">
+                    <div class="col-3" style="margin-left: 300px;">
+                        <input class="form-control" type="text" placeholder="new password" formControlName="newpwd">
                     </div>
-                    <div class="col-4">
-                        <button class="btn btn-primary" type="submit">New Password</button>
+                    <div class="col">
+                        <button class="btn btn-primary" type="submit">Change Password</button>
                     </div>
                 </div>
             </form>
