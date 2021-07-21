@@ -103,4 +103,8 @@ export class ForgotpwdComponent implements OnInit {
   errorPwd(data){
      this.toastr.error("failed");
   }
+
+  gotoLogin(){
+    this.route.navigateByUrl("/login");
+  }
 }

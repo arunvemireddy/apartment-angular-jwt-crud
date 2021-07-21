@@ -1,4 +1,4 @@
-<button class="btn btn-primary mt-5">
+<button class="btn btn-primary mt-5" (click)="gotoLogin()" title="back">
     <span class="fa fa-arrow-left"></span>
 </button>
 <div *ngIf="!hidenewPwd" class="card mb-5 mt-5">
@@ -7,8 +7,9 @@
         <div class="card-body">
             <form #registerForm="ngForm" [formGroup]="otpForm" (ngSubmit)="sendOtp()">
                 <div class="row mb-5">
-                    <div class="col-3" style="margin-left: 300px;">
+                    <div class="form-floating col-3" style="margin-left: 300px;">
                         <input class="form-control" type="text" placeholder="Enter Username" formControlName="userName">
+                        <label for="floatingInput">Username</label>
                     </div>
                     <div class="col">
                         <button class="btn btn-primary" type="submit" [disabled]="disbtn" [disabled]="registerForm.form.invalid">
@@ -18,8 +19,9 @@
             </form>
             <form #loginForm="ngForm" [formGroup]="newotpForm" (ngSubmit)="validateOtp()">
                 <div class="row">
-                    <div class="col-3" style="margin-left: 300px;">
+                    <div class="form-floating col-3" style="margin-left: 300px;">
                         <input class="form-control" type="number" placeholder="Enter OTP" formControlName="otpNumber" required>
+                        <label for="floatingInput">OTP</label>
                     </div>
                     <div class="col">
                         <button class="btn btn-primary" type="submit" [disabled]="isbtn" [disabled]="loginForm.form.invalid">
@@ -36,13 +38,14 @@
 <div *ngIf="hidenewPwd" class="card">
     <div class="card-header">
         <div class="card-body">
-            <form [formGroup]="changePwdForm" (ngSubmit)="changePassword()">
+            <form #changePwdForm="ngForm" [formGroup]="changePwdForm" (ngSubmit)="changePassword()">
                 <div class="row">
-                    <div class="col-3" style="margin-left: 300px;">
+                    <div class="form-floating col-3" style="margin-left: 300px;">
                         <input class="form-control" type="text" placeholder="new password" formControlName="newpwd">
+                        <label for="floatingInput">New Password</label>
                     </div>
                     <div class="col">
-                        <button class="btn btn-primary" type="submit">Change Password</button>
+                        <button class="btn btn-primary" type="submit" [disabled]="changePwdForm.form.invalid">Change Password</button>
                     </div>
                 </div>
             </form>
