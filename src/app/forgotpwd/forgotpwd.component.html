@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card mb-5">
     <div class="card-header">
         <h2>OTP Sent to your Registered Mail id</h2>
         <div class="card-body">
@@ -14,16 +14,33 @@
                 </div>
             </form>
             <form #loginForm="ngForm" [formGroup]="newotpForm" (ngSubmit)="validateOtp()">
-            <div class="row">
-                <div class="col-3">
-                    <input class="form-control" type="number" placeholder="Enter OTP" formControlName="otpNumber">
+                <div class="row">
+                    <div class="col-3">
+                        <input class="form-control" type="number" placeholder="Enter OTP" formControlName="otpNumber">
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-primary" type="submit" [disabled]="loginForm.form.invalid"
+                            [disabled]="loginForm.form.invalid">Validate OTP</button>
+                    </div>
                 </div>
-                <div class="col">
-                    <button class="btn btn-primary" type="submit" [disabled]="loginForm.form.invalid"
-                    [disabled]="loginForm.form.invalid">Validate OTP</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="hidenewPwd" class="card">
+    <div class="card-header">
+        <div class="card-body">
+            <form>
+                <div class="row">
+                    <div class="col-4">
+                        <input class="form-control" type="text" placeholder="new password">
+                    </div>
+                    <div class="col-4">
+                        <button class="btn btn-primary" type="submit">New Password</button>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
         </div>
     </div>
 </div>

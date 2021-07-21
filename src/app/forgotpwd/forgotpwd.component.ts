@@ -12,44 +12,52 @@ import { ApartmentCONSTANT } from '../shared/ApartmentCONSTANT';
 })
 export class ForgotpwdComponent implements OnInit {
 
-  constructor(private service:SaveService) { }
+  constructor(private service: SaveService) { }
 
   otpForm = new FormGroup({
-    userName: new FormControl('',Validators.required)
+    userName: new FormControl('', Validators.required)
   })
 
-  newotpForm= new FormGroup({
-    otpNumber: new FormControl('',Validators.required)
+  newotpForm = new FormGroup({
+    otpNumber: new FormControl('', Validators.required)
   })
+  hidenewPwd: boolean = false;
 
   ngOnInit(): void {
   }
 
-  sendOtp(){
-  let url=ApartmentCONSTANT.GENERATEOTP_URI; 
-   const params = new HttpParams({
-     fromObject:{
-      username:this.otpForm.controls['userName'].value,
-     }
-   })
-   this.service.getService(url,(data)=>this.success(data),(data)=>this.error(data),params)
+  sendOtp() {
+    let url = ApartmentCONSTANT.GENERATEOTP_URI;
+    const params = new HttpParams({
+      fromObject: {
+        username: this.otpForm.controls['userName'].value,
+      }
+    })
+    this.service.getService(url, (data) => this.success(data), (data) => this.error(data), params)
   }
 
-  success(data){
-     console.log(data);
+  success(data) {
+    console.log(data);
   }
-  error(data){
+  error(data) {
 
   }
 
-  validateOtp(){
-    let url=ApartmentCONSTANT.VALIDATEOTP_URI; 
-   const params = new HttpParams({
-     fromObject:{
-      username:this.otpForm.controls['userName'].value,
-      otp:this.newotpForm.controls['otpNumber'].value,
-     }
-   })
-   this.service.getService(url,(data)=>this.success(data),(data)=>this.error(data),params)
+  validateOtp() {
+    let url = ApartmentCONSTANT.VALIDATEOTP_URI;
+    const params = new HttpParams({
+      fromObject: {
+        username: this.otpForm.controls['userName'].value,
+        otp: this.newotpForm.controls['otpNumber'].value,
+      }
+    })
+    this.service.getService(url, (data) => this.successOtp(data), (data) => this.errorOtp(data), params)
+  }
+
+  successOtp(data) {
+    this.hidenewPwd = true;
+  }
+  errorOtp(data) {
+    this.hidenewPwd = false;
   }
 }
