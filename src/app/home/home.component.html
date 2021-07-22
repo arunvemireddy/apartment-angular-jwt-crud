@@ -63,7 +63,8 @@
         <tbody>
             <tr *ngFor="let row of ownerDetails">
                 <td>{{row.id}}</td>
-                <td>{{row.name}}</td>
+                <td>
+                <a style="cursor: pointer;" (click)="viewOwner(row.id)">{{row.name}}</a></td>
                 <td>{{row.flatno}}</td>
                 <td>{{row.contact}}</td>
             </tr>

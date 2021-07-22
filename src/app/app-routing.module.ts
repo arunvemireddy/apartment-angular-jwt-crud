@@ -8,6 +8,7 @@ import { MainComponent } from './main/main.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { SaveapdetailsComponent } from './saveapdetails/saveapdetails.component';
 import { AuthGuard } from './shared/services/auth.guard';
+import { ViewOwnerComponent } from './view-owner/view-owner.component';
 
 const routes: Routes = [
   {path:'',pathMatch:'full',redirectTo:'/login'},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path:'home',component:HomeComponent},
   {path:'save',component:SaveapdetailsComponent},
   {path:'main',component:MainComponent,pathMatch:"full",canActivate:[AuthGuard]},
-  {path:'forgotPwd',component:ForgotpwdComponent}
+  {path:'forgotPwd',component:ForgotpwdComponent},
+  {path:'viewowner',component:ViewOwnerComponent}
 ];
 
 @NgModule({

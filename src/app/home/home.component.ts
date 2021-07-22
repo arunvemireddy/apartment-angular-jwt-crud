@@ -7,6 +7,8 @@ import { HttpParams } from '@angular/common/http';
 import * as FileSaver from 'file-saver';
 import { popper } from '@popperjs/core';
 import * as XLSX from 'xlsx';
+import { Router } from '@angular/router';
+import { TabService } from '../shared/services/tab.service';
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
 const EXCEL_EXTENSION = '.csv';
 const EXCEL_EXTENSION_XLSX = '.xlsx';
@@ -30,7 +32,10 @@ export class HomeComponent implements OnInit {
   colName:any=['id','name','flatno','contact'];
   
 
-  constructor(private saveService: SaveService,private loginService:LoginService) {
+  constructor(private saveService: SaveService,
+    private loginService:LoginService,
+    private router:Router,
+    private tabservice:TabService) {
    }
 
   ngOnInit(): void {
@@ -178,5 +183,11 @@ export class HomeComponent implements OnInit {
       }
     });
      this.saveService.getService(ApartmentCONSTANT.GET_OWNER_DETAILS_URI,res=>this.prepareData(res),err=>this.showErrorMessage(err),page);
+  }
+
+  viewOwner(data){
+   // console.log(data);
+    this.tabservice.passValue(data);
+    
   }
 }

@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 import { PayComponent } from '../pay/pay.component';
 import { GalleryComponent } from '../gallery/gallery.component';
 import { MydetailsComponent } from '../mydetails/mydetails.component';
+import { ViewOwnerComponent } from '../view-owner/view-owner.component';
+import { TabService } from '../shared/services/tab.service';
 
 @Component({
   selector: 'app-main',
@@ -30,7 +32,8 @@ export class MainComponent implements OnInit {
   dateMessage:any;
 
 
-  constructor(private loginService:LoginService,private saveService:SaveService,private route:Router ) { 
+  constructor(private loginService:LoginService,private saveService:SaveService,private route:Router,
+    private tabservice:TabService) { 
     setInterval(()=>{
         this.getDate();
     },1000)
@@ -43,6 +46,11 @@ export class MainComponent implements OnInit {
     this.saveService.getService(ApartmentCONSTANT.GET_APARTMENT_DETAILS_URI,res=>this.getApartmentDetails(res),err=>this.showErrorMessage(err));
    
   //  console.log(this.userName);
+  this.tabservice.ownerName.subscribe(
+    data=>{
+      this.onViewOwner(data);
+    }
+  );
   }
 
   asycall(){
@@ -118,6 +126,14 @@ export class MainComponent implements OnInit {
     this.componentOutlet=[{
       label:'home',
       component:PayComponent
+   }]
+   }
+
+   onViewOwner(data){
+    this.tabservice.id=data; 
+    this.componentOutlet=[{
+      label:'viewowner',
+      component:ViewOwnerComponent
    }]
    }
 }

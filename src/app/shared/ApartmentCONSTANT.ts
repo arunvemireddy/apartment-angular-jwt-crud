@@ -25,4 +25,6 @@ export class ApartmentCONSTANT {
  static readonly GENERATEOTP_URI='generateOtp';
  static readonly VALIDATEOTP_URI='validateOtp';
  static readonly CHANGEPWD_URI='changepassword';
+ static readonly GETPROFILEPIC_URI='getProfilePic';
+ static readonly UPLOADPROFILEPIC_URI='uploadProfilePic';
 }

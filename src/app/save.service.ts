@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
-import { Observable } from 'rxjs'; 
+import { Observable, Observer } from 'rxjs'; 
 import { Apartment } from './Apartment';
 import { map } from 'jquery';
 
@@ -63,5 +63,15 @@ export class SaveService {
   downloadService(url:string){
     
     return this.http.get(`${this.baseUrl}`+url,{ responseType: 'blob' });
+  }
+
+  getProfileService(url:string,params?:HttpParams){
+    
+    return this.http.get(`${this.baseUrl}`+url,{ params,responseType: 'text' });
+  }
+  
+  uploadProfileService(url:string,params?:HttpParams,obj?:Object){
+    
+    return this.http.post(`${this.baseUrl}`+url,obj,{ params,responseType: 'text' });
   }
 }
