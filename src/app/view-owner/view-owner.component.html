@@ -1,7 +1,19 @@
-<img [src]="imagePath" class="img-thumbnail">
-<div>
-    <span style="background-color: yellow;">choose jpg file of size 200x200</span>
-</div>
 
-<input class="form-control" type="file" (change)="onFileSelect($event)">
+<div class="mt-3 ms-3">
+    <img [src]="imagePath" class="rounded" style="position: absolute">
+    <div class="camera" style="position: absolute;">
+        <span class="fa fa-camera" style="cursor: pointer;" (click)="fileInput.click()" title="change profile">
+            <input hidden class="form-control" #fileInput type="file" (change)="onFileSelect($event)">
+        </span>
+    </div> 
+</div>
+<!-- <div style="position: static;">
+    <p style="position: relative;">
+        <span style="background-color: yellow;">choose jpg file of size 200x200</span> 
+    </p>
+</div> -->
+
+
+
+
 
