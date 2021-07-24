@@ -21,6 +21,8 @@ export class PayComponent implements OnInit {
   });
   flatList:any=[];
 
+  fno = new FormControl('');
+
   constructor(private service:SaveService) { }
 
   ngOnInit(): void {
@@ -60,5 +62,15 @@ export class PayComponent implements OnInit {
   }
   errorchangeFlatCallBack(data){
 
+  }
+
+  payMaintenance(){
+    let url=ApartmentCONSTANT.PAYMAINTENANCE_URI;
+    let params = new HttpParams({
+      fromObject:{
+        flatNo:this.fno.value
+      }
+    });
+    this.service.getService(url,'','',params);
   }
 }

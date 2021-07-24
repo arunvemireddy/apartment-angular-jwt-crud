@@ -27,4 +27,6 @@ export class ApartmentCONSTANT {
  static readonly CHANGEPWD_URI='changepassword';
  static readonly GETPROFILEPIC_URI='getProfilePic';
  static readonly UPLOADPROFILEPIC_URI='uploadProfilePic';
+ static readonly PAYMAINTENANCE_URI='payMaintenance';
+ static readonly YEARMAINTENANCEDETAILS_URI='yearMaintenanceDetails';
 }

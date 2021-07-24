@@ -20,6 +20,7 @@ export class ViewOwnerComponent implements OnInit {
 
   ngOnInit(): void {
    this.getImage();
+   this.getMaintenanceDetails();
   }
 
   getImage() {
@@ -51,4 +52,19 @@ export class ViewOwnerComponent implements OnInit {
     });
     this.servive.uploadProfileService(url,params,formData).subscribe((data)=>this.success(data));
   }
+
+  getMaintenanceDetails(){
+    let params= new HttpParams({
+      fromObject:{
+        flatNo:"101",
+        year:"2021"
+      }
+    });
+    let url:any=ApartmentCONSTANT.  YEARMAINTENANCEDETAILS_URI;
+    this.servive.getProfileService(url,params).subscribe((data)=>this.successYear(data));
+  }
+  successYear(data){
+    console.log(data);
+  }
 }
+

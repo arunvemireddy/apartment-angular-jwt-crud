@@ -7,7 +7,8 @@
                     <th>Flat No</th>
                     <td>
                         <ng-select class="form-select" (search)="onSearchFlat($event)" (change)="changeFlat($event)"
-                            [items]="flatList" [virtualScroll]="true" placeholder="Flat No"></ng-select>
+                            [items]="flatList" [virtualScroll]="true" placeholder="Flat No"
+                            [formControl]="fno"></ng-select>
 
                         <!-- <select class="form-select"  [(ngModel)]="selectedname" (search)="onSearchFlat($event)"
                             (change)="changeFlat($event)">
@@ -38,7 +39,7 @@
                 </tr>
                 <div class="mb-3"></div>
             </table>
-            <button class="btn btn-primary payBtn mb-3 w-100" type="submit">Pay</button>
+            <button class="btn btn-primary payBtn mb-3 w-100" type="submit" (click)="payMaintenance()">Pay</button>
             <ul class="list-group list-group-flush ">
                 <li class="list-group-item bg-dark">
                     <a target="_blank" href="https://pay.google.com/"><img src="assets/newgpay.png"
